@@ -46,7 +46,36 @@ for (const item of itemsToCollect) {
   item.addEventListener("click", handleSelectedItem);
 }
 
+const collectedItems = document.querySelector("input[name=items]");
+let seletedItems = [];
+
 function handleSelectedItem(event) {
-  // Adicionar o remover uma classe com javaScript
-  console.log(event.target);
+  const itemLi = event.target;
+
+  // Adicionar ou remover uma classe com javaScript
+
+  itemLi.classList.toggle("selected");
+  const itemId = event.target.dataset.id;
+
+  // VERIFICAR SE EXISTEM ITENS SELECIONADOS
+
+  const alreadySelected = seletedItems.findIndex((item) => {
+    const itemFound = item == itemId; // COMPARAÇÃO SEM 'IF' COM O '==' RETORNANDO 'TRUE OR FALSE'
+    return itemFound;
+  });
+
+  // SE SIM: FUNÇÃO => TIRAR DA SELEÇÃO
+  if (alreadySelected >= 0) {
+    const filteredItems = seletedItems.filter((item) => {
+      const itemIsDefferent = item != itemId;
+      return itemIsDefferent;
+    });
+    seletedItems = filteredItems;
+  } else {
+    // SE NÃO: FUNÇÃO => COLOCAR NA SELEÇÃO
+    seletedItems.push(itemId);
+  }
+  console.log(seletedItems);
+  // ATUALIZAR O CAMPO ESCONDIDO COM OS NOMES SELECIONADOS
+  collectedItems.value = seletedItems;
 }
