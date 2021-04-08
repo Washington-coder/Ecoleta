@@ -19,10 +19,9 @@
   <body>
     <div id="page-home">
       <div class="content">
-        p
         <header>
           <img src="assets/logo.svg" alt="logomarca" />
-          <a href="">
+          <a href="create-point.html">
             <span></span>
             Cadastre um ponto de coleta
           </a>
@@ -41,16 +40,20 @@
         </main>
       </div>
     </div>
-    <div id="modal">
+    <div id="modal" class="hide">
       <div class="content">
         <div class="header">
           <h1>Pontos de coleta</h1>
-          <a href="">Fechar</a>
+          <a href="#">Fechar</a>
         </div>
-        <form action="">
+        <form action="/search-results.html">
           <label for="search">Cidade</label>
           <div class="search field">
-            <input type="text" name="search" />
+            <input
+              type="text"
+              name="search"
+              placeholder="Pesquise por Cidade"
+            />
             <button>
               <img src="assets/search.svg" alt="Buscar" />
             </button>
@@ -58,5 +61,6 @@
         </form>
       </div>
     </div>
+    <script src="scripts/index.js"></script>
   </body>
 </html>
