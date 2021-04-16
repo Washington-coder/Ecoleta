@@ -1,6 +1,13 @@
 const express = require("express");
 const server = express();
 
+//UTILIZANDO TEMPLATE ENGINE
+const nunjucks = require("nunjucks");
+nunjucks.configure("src/views", {
+  express: server,
+  noCache: true,
+});
+
 //CONFIGURAR CAMINHOS DA APLICAÇÃO
 //PAGINA INICIAL
 //req: requisicao
@@ -8,10 +15,13 @@ const server = express();
 //CONFIGURAR PASTA PUBLICA
 server.use(express.static("public"));
 server.get("/", (req, res) => {
-  res.sendFile(__dirname + "/views/index.html");
+  return res.render("index.html", { title: "Um titulo" });
 });
 server.get("/create-point", (req, res) => {
-  res.sendFile(__dirname + "/views/create-point.html");
+  return res.render("create-point.html");
+});
+server.get("/search", (req, res) => {
+  return res.render("search-results.html");
 });
 //LIGAR O SERVIDOR
 server.listen(3000);
