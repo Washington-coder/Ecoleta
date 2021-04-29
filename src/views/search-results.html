@@ -6,6 +6,7 @@
 <!-- BLOCO STYLES -->
 {% block styles %}
 <link rel="stylesheet" href="styles/search-results.css" />
+
 {% endblock styles %}
 <!-- VARIAVEL ID -->
 {% set pageId = "page-search-results" %}
@@ -16,6 +17,8 @@
 <main>
   <h4><strong>2 pontos</strong> encontrados</h4>
   <div class="cards">
+    {{places}}
+
     <div class="card">
       <img
         src="https://images.unsplash.com/photo-1528323273322-d81458248d40?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=801&q=80"
